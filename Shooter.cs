@@ -6,7 +6,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _waitTime;
 
-    [SerializeField] private GameObject _prefab;
+    [SerializeField] private Bullet _prefab;
 
     [SerializeField] private Transform _target;
 
@@ -25,7 +25,7 @@ public class Shooter : MonoBehaviour
         {
             Vector3 direction = (_target.position - transform.position).normalized;
 
-            GameObject bullet = Instantiate(_prefab, transform.position, Quaternion.identity);
+            Bullet bullet = Instantiate(_prefab, transform.position, Quaternion.identity);
 
             bullet.transform.up = direction;
 
