@@ -15,10 +15,10 @@ public class Movement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, positionCurrentWayPoint, _speed * Time.deltaTime);
 
         if (transform.position == positionCurrentWayPoint)
-            TakeNextPlace();
+            EstablishNextWayPoint();
     }
 
-    private void TakeNextPlace()
+    private void EstablishNextWayPoint()
     {
         _currentWayPoint++;
 

@@ -1,16 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class InstantiateBulletsShooting : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _waitTime;
 
-    [SerializeField] private Rigidbody _prefab;
+    [SerializeField] private GameObject _prefab;
 
     [SerializeField] private Transform _target;
 
-    [SerializeField] private Coroutine _coroutine;
+    private Coroutine _coroutine;
 
     private void Start()
     {
@@ -25,11 +25,11 @@ public class InstantiateBulletsShooting : MonoBehaviour
         {
             Vector3 direction = (_target.position - transform.position).normalized;
 
-            Rigidbody bullet = Instantiate(_prefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(_prefab, transform.position, Quaternion.identity);
 
             bullet.transform.up = direction;
 
-            bullet.velocity = direction * _speed * Time.deltaTime;
+            bullet.GetComponent<Rigidbody>().velocity = direction * _speed * Time.deltaTime;
 
             yield return waitForSeconds;
         }
