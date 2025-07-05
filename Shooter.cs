@@ -29,7 +29,7 @@ public class Shooter : MonoBehaviour
 
             bullet.transform.up = direction;
 
-            bullet.GetComponent<Rigidbody>().velocity = direction * _speed * Time.deltaTime;
+            bullet.Rigidbody.velocity = direction * _speed * Time.deltaTime;
 
             yield return waitForSeconds;
         }
